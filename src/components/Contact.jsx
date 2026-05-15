@@ -10,7 +10,7 @@ function Contact() {
           href="https://github.com/"
           target="_blank"
           className="block"
-        >
+        > 
           GitHub
         </a>
 
