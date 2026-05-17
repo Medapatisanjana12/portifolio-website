@@ -44,7 +44,7 @@ function Certifications() {
           </p>
 
           <a
-            href="https://drive.google.com/file/d/1VnxpT_Le16GnspZHkKw-oIH3HnHLkorW/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1--3FNpMiyO2GKm31xBZbrbCymjx9Qiri/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit mx-auto px-4 py-2 bg-blue-500
@@ -88,7 +88,7 @@ function Certifications() {
           </p>
 
           <a
-            href="https://your-certificate-link.com"
+            href="https://drive.google.com/file/d/16edMqT4eNGpjj9REfmNoIQS7L1jcAPR_/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit mx-auto px-4 py-2 bg-purple-500
@@ -110,7 +110,7 @@ function Certifications() {
           </p>
 
           <a
-            href="https://your-certificate-link.com"
+            href="https://drive.google.com/file/d/16dSv4a5ms-g0eTdSRkdrcFsIa3l7IzrQ/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit mx-auto px-4 py-2 bg-orange-500
@@ -132,7 +132,7 @@ function Certifications() {
           </p>
 
           <a
-            href="https://your-certificate-link.com"
+            href="https://drive.google.com/file/d/16dSv4a5ms-g0eTdSRkdrcFsIa3l7IzrQ/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit mx-auto px-4 py-2 bg-pink-500
@@ -154,7 +154,7 @@ function Certifications() {
           </p>
 
           <a
-            href="https://your-certificate-link.com"
+            href="https://drive.google.com/file/d/1gunF7uifkMpXTtG_0vPQH2FydgDNyM_Q/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit mx-auto px-4 py-2 bg-green-500
