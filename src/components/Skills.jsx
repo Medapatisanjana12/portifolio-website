@@ -9,9 +9,19 @@ import {
   FaAws,
 } from "react-icons/fa";
 
+import { motion } from "framer-motion";
+
 function Skills() {
   return (
-    <section id="skills" className="min-h-screen p-10">
+    <motion.section
+      id="skills"
+      className="min-h-screen p-10"
+
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
 
       <h2 className="text-4xl text-blue-500 font-bold mb-10">
         Skills
@@ -20,7 +30,12 @@ function Skills() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 
         {/* HTML */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -34,10 +49,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             HTML
           </p>
-        </div>
+        </motion.div>
 
         {/* CSS */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -51,10 +71,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             CSS
           </p>
-        </div>
+        </motion.div>
 
         {/* Python */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -68,10 +93,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             PYTHON
           </p>
-        </div>
+        </motion.div>
 
         {/* Java */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -85,10 +115,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             JAVA
           </p>
-        </div>
+        </motion.div>
 
         {/* React */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -102,10 +137,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             REACT
           </p>
-        </div>
+        </motion.div>
 
         {/* JavaScript */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -119,10 +159,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             JAVASCRIPT
           </p>
-        </div>
+        </motion.div>
 
         {/* Snowflake */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -136,10 +181,15 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             SNOWFLAKE
           </p>
-        </div>
+        </motion.div>
 
         {/* AWS */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          viewport={{ once: true }}
+
           className="bg-slate-800 p-6 rounded-xl text-center
           hover:bg-slate-700 hover:scale-105
           transition-all duration-300"
@@ -153,10 +203,10 @@ function Skills() {
           <p className="mt-4 text-white font-semibold">
             AWS
           </p>
-        </div>
+        </motion.div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

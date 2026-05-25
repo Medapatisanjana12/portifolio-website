@@ -12,8 +12,16 @@ function Hero() {
           {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+
+            whileInView={{
+              opacity: 1,
+              x: 0
+            }}
+
             transition={{ duration: 1 }}
+
+            viewport={{ once: true }}
+
             className="text-center md:text-left"
           >
             <h1 className="text-6xl font-bold mb-4">
@@ -28,8 +36,16 @@ function Hero() {
           {/* Right Side */}
           <motion.div
             initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
+
+            whileInView={{
+              opacity: 1,
+              x: 0
+            }}
+
             transition={{ duration: 1 }}
+
+            viewport={{ once: true }}
+
             className="flex justify-center"
           >
             <img

@@ -5,11 +5,18 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 
+import { motion } from "framer-motion";
+
 function Contact() {
   return (
-    <section
+    <motion.section
       id="contact"
       className="min-h-screen p-10"
+
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
     >
 
       <h2 className="text-4xl text-blue-500 font-bold mb-10">
@@ -19,7 +26,12 @@ function Contact() {
       <div className="space-y-6">
 
         {/* Email */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.1 }}
+          viewport={{ once: true }}
+
           className="flex items-center gap-4
           bg-slate-800 p-5 rounded-xl
           hover:bg-slate-700 transition duration-300"
@@ -32,13 +44,19 @@ function Contact() {
           <p className="text-lg text-white">
             medapatisanjana0212@gmail.com
           </p>
-        </div>
+        </motion.div>
 
         {/* GitHub */}
-        <a
+        <motion.a
           href="https://github.com/Medapatisanjana12"
           target="_blank"
           rel="noopener noreferrer"
+
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+
           className="flex items-center gap-4
           bg-slate-800 p-5 rounded-xl
           hover:bg-slate-700 transition duration-300"
@@ -51,13 +69,19 @@ function Contact() {
           <p className="text-lg text-white">
             GitHub
           </p>
-        </a>
+        </motion.a>
 
         {/* LinkedIn */}
-        <a
+        <motion.a
           href="https://www.linkedin.com/in/sanjana-medapati-65744b2b4/"
           target="_blank"
           rel="noopener noreferrer"
+
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+
           className="flex items-center gap-4
           bg-slate-800 p-5 rounded-xl
           hover:bg-slate-700 transition duration-300"
@@ -70,26 +94,32 @@ function Contact() {
           <p className="text-lg text-white">
             LinkedIn
           </p>
-        </a>
-        {/* Mobile Number */}
-<div
-  className="flex items-center gap-4
-  bg-slate-800 p-5 rounded-xl
-  hover:bg-slate-700 transition duration-300"
->
-  <FaPhoneAlt
-    size={24}
-    className="text-green-400"
-  />
+        </motion.a>
 
-  <p className="text-lg text-white">
-    +91 966633****
-  </p>
-</div>
+        {/* Mobile Number */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+
+          className="flex items-center gap-4
+          bg-slate-800 p-5 rounded-xl
+          hover:bg-slate-700 transition duration-300"
+        >
+          <FaPhoneAlt
+            size={24}
+            className="text-green-400"
+          />
+
+          <p className="text-lg text-white">
+            +91 966633****
+          </p>
+        </motion.div>
 
       </div>
 
-    </section>
+    </motion.section>
   );
 }
 
