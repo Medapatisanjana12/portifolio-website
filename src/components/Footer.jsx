@@ -1,126 +1,44 @@
-import { motion } from "framer-motion";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { profile } from "../data/portfolio";
 
 function Footer() {
+  const links = [
+    { label: "GitHub", href: profile.github, icon: FaGithub },
+    { label: "LinkedIn", href: profile.linkedin, icon: FaLinkedin },
+    { label: "Email", href: `mailto:${profile.email}`, icon: FaEnvelope },
+  ];
+
   return (
-    <motion.footer
-      className="bg-slate-900 py-12 mt-10 border-t border-slate-700"
-
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        {/* Top Section */}
-        <div
-          className="grid md:grid-cols-2 gap-10 items-start"
-        >
-
-          {/* Left Side */}
-          <motion.div
-
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Let’s Connect
-            </h2>
-
-            <p className="text-gray-400 leading-7">
-              Thank you for visiting my portfolio.
-              Feel free to connect with me through
-              GitHub, LinkedIn, or email.
-            </p>
-
-          </motion.div>
-
-          {/* Suggestion Box */}
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-
-            className="bg-slate-800 p-6 rounded-2xl"
-          >
-
-            <h3 className="text-2xl font-semibold mb-5">
-              Suggestions
-            </h3>
-
-            {/* Name */}
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full mb-4 p-3 rounded-xl
-              bg-slate-700 text-white
-              outline-none"
-            />
-
-            {/* Email */}
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full mb-4 p-3 rounded-xl
-              bg-slate-700 text-white
-              outline-none"
-            />
-
-            {/* Suggestion */}
-            <textarea
-              placeholder="Write your suggestion..."
-              rows="4"
-              className="w-full mb-4 p-3 rounded-xl
-              bg-slate-700 text-white
-              outline-none resize-none"
-            ></textarea>
-
-            {/* Button */}
-            <button
-              className="px-5 py-2 rounded-xl
-              bg-gradient-to-r from-cyan-500 to-blue-500
-              hover:from-pink-500 hover:to-purple-600
-              transition duration-300 font-semibold"
-            >
-              Send Suggestion
-            </button>
-
-          </motion.div>
-
+    <footer className="border-t border-[var(--border)] bg-slate-950/40 px-6 py-10">
+      <div className="section-inner flex flex-col items-center justify-between gap-6 text-center text-sm text-[var(--muted)] md:flex-row md:text-left">
+        <div>
+          <p className="font-extrabold text-[var(--text)] font-outfit text-base tracking-tight">Sanjana Medapati</p>
+          <p className="mt-1 text-xs text-[var(--muted)]">AI/ML Engineer • Software Developer • Data Analyst</p>
         </div>
 
-        {/* Bottom Line */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
+        <div className="flex items-center gap-2.5">
+          {links.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a 
+                key={link.label} 
+                href={link.href} 
+                target={link.href.startsWith("http") ? "_blank" : undefined} 
+                rel="noreferrer" 
+                className="btn btn-secondary h-9 w-9 p-0 rounded-xl hover:border-[var(--accent)] hover:text-[var(--accent)]" 
+                aria-label={link.label}
+              >
+                <Icon className="text-sm" />
+              </a>
+            );
+          })}
+        </div>
 
-          className="border-t border-slate-700 mt-10 pt-6
-          flex flex-col md:flex-row
-          items-center justify-between gap-4"
-        >
-
-          <p className="text-gray-400 text-sm">
-            © 2026 Sanjana Medapati. All rights reserved.
-          </p>
-
-          <p
-            className="text-blue-400 font-semibold"
-          >
-            @Sanjana Medapati
-          </p>
-
-        </motion.div>
-
+        <p className="mono text-[10px] text-[var(--faint)]">
+          © {new Date().getFullYear()} • Crafted with React, Vite, Tailwind & Framer Motion
+        </p>
       </div>
-
-    </motion.footer>
+    </footer>
   );
 }
 

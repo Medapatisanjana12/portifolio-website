@@ -1,353 +1,89 @@
 import { motion } from "framer-motion";
+import { FaCertificate, FaExternalLinkAlt, FaTrophy, FaChevronRight } from "react-icons/fa";
+import { achievements, certifications } from "../data/portfolio";
 
 function Certifications() {
   return (
-    <motion.section
-      id="certifications"
-      className="min-h-screen p-10"
-
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
+    <section id="certifications" className="section relative overflow-hidden">
+      {/* Background Glow Blobs */}
+      <div className="glow-blob bg-blue-500 w-[300px] h-[300px] top-[30%] left-[-10%]" />
       
-      <h2 className="text-5xl text-blue-500 font-bold mb-12">
-        Certifications
-      </h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-        {/* AWS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            AWS AI Practitioner
+      <div className="section-inner">
+        <div className="max-w-3xl mb-12">
+          <p className="eyebrow">Certifications and achievements</p>
+          <h2 className="section-title font-outfit">Certifications</h2>
+          <p className="section-copy">
+            Rigorous certifications across cloud architecture, data warehouse modeling, enterprise solutions, and programming.
           </p>
+        </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full text-sm">
-              AWS
-            </span>
+        {/* Certifications Grid - Spans Full Width */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+          {certifications.map((cert, index) => (
+            <motion.a
+              key={cert.title}
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.03 }}
+              viewport={{ once: true }}
+              className="card p-5 group flex flex-col justify-between hover:border-[var(--accent)] hover:shadow-md"
+            >
+              <div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-blue-500/10 text-lg text-[var(--accent)] border border-blue-500/20 shadow-inner group-hover:scale-105 transition-transform">
+                    <FaCertificate />
+                  </span>
+                  <FaExternalLinkAlt className="text-xs text-[var(--faint)] group-hover:text-[var(--accent)] transition-colors" />
+                </div>
+                <p className="mt-4 mono text-[10px] font-bold uppercase tracking-wider text-[var(--faint)]">{cert.provider}</p>
+                <h3 className="mt-2 text-sm font-bold leading-snug text-[var(--text)] font-outfit group-hover:text-[var(--accent)] transition-colors duration-200">
+                  {cert.title}
+                </h3>
+              </div>
 
-            <span className="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm">
-              Cloud
-            </span>
+              <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
+                {cert.tags.map((tag) => (
+                  <span key={tag} className="badge bg-transparent text-[10px] font-semibold py-0.5 px-2 border-[var(--border)] text-[var(--muted)]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.a>
+          ))}
+        </div>
 
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              AI
+        {/* Competitive Coding Horizontal Module - Spans Full Width */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="card mt-8 p-5 bg-slate-900/10 hover:border-[var(--purple)]"
+        >
+          <div className="flex items-center gap-3 pb-4 border-b border-[var(--border)] mb-5">
+            <span className="grid h-8 w-8 place-items-center rounded-xl bg-purple-500/10 text-base text-[var(--purple)] border border-purple-500/20 shadow-inner">
+              <FaTrophy />
             </span>
+            <h3 className="text-base font-bold text-[var(--text)] font-outfit tracking-tight">Competitive Coding Highlights</h3>
           </div>
 
-          <a
-            href="https://drive.google.com/file/d/1y_mmMDhnK6LhamrYIPd3scg8FTAW5tzf/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-yellow-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* Java */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            Oracle Java Associate Foundations
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-sm">
-              Java
-            </span>
-
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              OOP
-            </span>
-
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
-              Oracle
-            </span>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {achievements.map((achievement, idx) => (
+              <div 
+                key={idx} 
+                className="flex gap-3 items-start border-l-2 border-purple-500/30 pl-3 py-1 text-xs leading-relaxed text-[var(--muted)] hover:border-purple-500 hover:text-[var(--text)] transition-all duration-200"
+              >
+                <FaChevronRight className="text-purple-400 mt-0.5 shrink-0 text-[9px]" />
+                <span>{achievement}</span>
+              </div>
+            ))}
           </div>
-
-          <a
-            href="https://drive.google.com/file/d/1--3FNpMiyO2GKm31xBZbrbCymjx9Qiri/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-blue-500
-            hover:bg-grey-100 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
         </motion.div>
-
-        {/* DBMS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            Oracle Database Associate Foundations
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-violet-500/20 text-violet-300 px-3 py-1 rounded-full text-sm">
-              SQL
-            </span>
-
-            <span className="bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full text-sm">
-              DBMS
-            </span>
-
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
-              Oracle
-            </span>
-          </div>
-
-          <a
-            href="https://drive.google.com/file/d/1_7tYT6BYrYMJQC-S8DsC3QDgV-OOl84B/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-violet-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* Snowflake */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            Snowflake Associate
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm">
-              Snowflake
-            </span>
-
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              Cloud
-            </span>
-
-            <span className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm">
-              Data
-            </span>
-          </div>
-
-          <a
-            href="https://drive.google.com/file/d/16edMqT4eNGpjj9REfmNoIQS7L1jcAPR_/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-purple-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* Python */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            Python Essentials
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full text-sm">
-              Python
-            </span>
-
-            <span className="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm">
-              Programming
-            </span>
-
-            <span className="bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full text-sm">
-              Basics
-            </span>
-          </div>
-
-          <a
-            href="https://drive.google.com/file/d/16dSv4a5ms-g0eTdSRkdrcFsIa3l7IzrQ/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-orange-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* C++ */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            C++ Essentials
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              C++
-            </span>
-
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
-              DSA
-            </span>
-
-            <span className="bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full text-sm">
-              Coding
-            </span>
-          </div>
-
-          <a
-            href="https://drive.google.com/file/d/16dSv4a5ms-g0eTdSRkdrcFsIa3l7IzrQ/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-pink-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* HTML CSS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            IT Specialist HTML and CSS
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm">
-              HTML
-            </span>
-
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              CSS
-            </span>
-
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
-              Web
-            </span>
-          </div>
-
-          <a
-            href="https://drive.google.com/file/d/1gunF7uifkMpXTtG_0vPQH2FydgDNyM_Q/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-green-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
-        {/* OS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 h-auto p-4 rounded-3xl text-center
-          hover:bg-slate-700 hover:-translate-y-1
-          transition-all duration-300 flex flex-col justify-center"
-        >
-          <p className="text-xl font-bold text-white mb-4">
-            Operating Systems Essentials
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-5">
-            <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-sm">
-              OS
-            </span>
-
-            <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-              Linux
-            </span>
-
-            <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
-              Systems
-            </span>
-          </div>
-
-          <a
-            href="https://your-certificate-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-fit mx-auto px-4 py-2 bg-red-500
-            hover:bg-blue-400 text-white rounded-xl
-            transition duration-300 text-sm font-semibold"
-          >
-            View Certificate
-          </a>
-        </motion.div>
-
       </div>
-    </motion.section>
+    </section>
   );
 }
 

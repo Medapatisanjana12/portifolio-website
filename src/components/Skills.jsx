@@ -1,212 +1,73 @@
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaPython,
-  FaJava,
-  FaSnowflake,
-  FaJs,
-  FaAws,
-} from "react-icons/fa";
-
 import { motion } from "framer-motion";
+import { skills } from "../data/portfolio";
 
 function Skills() {
+  // Map index to a custom gradient theme for categories
+  const themes = [
+    "hover:border-blue-500/30 group-hover:text-blue-400 bg-blue-500/5",
+    "hover:border-purple-500/30 group-hover:text-purple-400 bg-purple-500/5",
+    "hover:border-sky-500/30 group-hover:text-sky-400 bg-sky-500/5",
+    "hover:border-indigo-500/30 group-hover:text-indigo-400 bg-indigo-500/5",
+    "hover:border-emerald-500/30 group-hover:text-emerald-400 bg-emerald-500/5",
+  ];
+
   return (
-    <motion.section
-      id="skills"
-      className="min-h-screen p-10"
+    <section id="skills" className="section relative overflow-hidden">
+      {/* Background glow */}
+      <div className="glow-blob bg-blue-500 w-[300px] h-[300px] top-[15%] left-[20%]" />
 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
-
-      <h2 className="text-4xl text-blue-500 font-bold mb-10">
-        Skills
-      </h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-        {/* HTML */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaHtml5
-            size={50}
-            className="mx-auto text-orange-500
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            HTML
+      <div className="section-inner">
+        <div className="max-w-3xl">
+          <p className="eyebrow">Technical toolkit</p>
+          <h2 className="section-title">Technical Skills</h2>
+          <p className="section-copy">
+            A comprehensive developer stack covering programming core, machine learning, data engineering, full-stack, and deployment automation tools.
           </p>
-        </motion.div>
+        </div>
 
-        {/* CSS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {skills.map((category, index) => {
+            const CategoryIcon = category.icon;
+            const themeClass = themes[index % themes.length];
+            
+            return (
+              <motion.article
+                key={category.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className={`card p-6 flex flex-col justify-between group transition-all duration-300 ${themeClass.split(" ")[0]}`}
+              >
+                <div>
+                  <div className="flex items-center gap-3.5 pb-5 border-b border-[var(--border)]">
+                    <span className={`grid h-10 w-10 place-items-center rounded-xl text-lg border border-[var(--border)] shadow-inner transition-colors duration-300 ${themeClass.split(" ").slice(1).join(" ")}`}>
+                      <CategoryIcon />
+                    </span>
+                    <h3 className="text-lg font-bold text-[var(--text)] tracking-tight font-outfit">{category.title}</h3>
+                  </div>
 
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaCss3Alt
-            size={50}
-            className="mx-auto text-blue-500
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            CSS
-          </p>
-        </motion.div>
-
-        {/* Python */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaPython
-            size={50}
-            className="mx-auto text-yellow-400
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            PYTHON
-          </p>
-        </motion.div>
-
-        {/* Java */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaJava
-            size={50}
-            className="mx-auto text-red-500
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            JAVA
-          </p>
-        </motion.div>
-
-        {/* React */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaReact
-            size={50}
-            className="mx-auto text-cyan-400
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            REACT
-          </p>
-        </motion.div>
-
-        {/* JavaScript */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaJs
-            size={50}
-            className="mx-auto text-yellow-400
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            JAVASCRIPT
-          </p>
-        </motion.div>
-
-        {/* Snowflake */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaSnowflake
-            size={50}
-            className="mx-auto text-blue-400
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            SNOWFLAKE
-          </p>
-        </motion.div>
-
-        {/* AWS */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          viewport={{ once: true }}
-
-          className="bg-slate-800 p-6 rounded-xl text-center
-          hover:bg-slate-700 hover:scale-105
-          transition-all duration-300"
-        >
-          <FaAws
-            size={50}
-            className="mx-auto text-orange-400
-            hover:rotate-12 transition-transform duration-300"
-          />
-
-          <p className="mt-4 text-white font-semibold">
-            AWS
-          </p>
-        </motion.div>
-
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {category.items.map((skill) => {
+                      const SkillIcon = skill.icon;
+                      return (
+                        <span 
+                          key={skill.name} 
+                          className="badge text-xs flex items-center gap-1.5 py-1.5 px-3 rounded-lg bg-[var(--bg-soft)] border border-[var(--border)] hover:bg-[var(--surface-strong)] hover:border-[var(--accent)] hover:-translate-y-0.5 hover:shadow-sm"
+                        >
+                          <SkillIcon className="text-[var(--accent)] text-sm" />
+                          {skill.name}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
